@@ -12,9 +12,9 @@ body{
 }
 
 .grid-element{
-    
+    background-color: rgb(255, 255, 255);
 }
 
 .grid-element:hover{
-    background-color: black;
+    
 }

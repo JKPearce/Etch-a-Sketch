@@ -21,7 +21,24 @@ function getUserInput(){
 }
 
 function changeColor(e){
-    this.style.backgroundColor = "black";
+    var r = Math.floor(Math.random() * 256); // range is 0-255
+    var g = Math.floor(Math.random() * 256);
+    var b = Math.floor(Math.random() * 256);
+
+    //get the current rgb value
+    let rgb = window.getComputedStyle(this, null)['backgroundColor'];
+
+    //if the current background is white then change background to random color
+    if(rgb === `rgb(255, 255, 255)`){
+        this.style.backgroundColor = `rgb(${r}, ${g}, ${b}`;
+        this.style.opacity = "0.1";
+    }else{
+        //increase current alpha by 10%
+        let opacity = parseFloat(this.style.opacity);
+        opacity = opacity + 0.1;
+        this.style.opacity = opacity;
+        this.style.backgroundColor = rgb;
+    } 
 }
 
 function createGrid(size){
@@ -45,7 +62,7 @@ function createGrid(size){
             gridContainer.appendChild(gridDiv);
         }
     }
-    
+
     //add mouseover listener for every grid element and change the color
     const gridElement = document.querySelectorAll('.grid-element');
     gridElement.forEach(element => element.addEventListener('mouseover', changeColor));
