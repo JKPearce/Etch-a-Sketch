@@ -1,0 +1,16 @@
+.grid-container{
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    height: 300px;
+    width: 300px;
+    background-color: blue;
+}
+
+.grid-element{
+    
+}
+
+.grid-element:hover{
+    background-color: black;
+}
